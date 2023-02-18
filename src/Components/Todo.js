@@ -1,8 +1,4 @@
 import React, { useEffect } from "react";
-// import deleteicon from "../Icons/trash.svg";
-// import checkicon from "../Icons/check2-circle.svg";
-// import editicon from "../Icons/pencil-square.svg";
-// import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Todo = ({
   data,
@@ -28,9 +24,9 @@ const Todo = ({
 
   const handleUpdate = () => {
     if (data.length > 0) {
-      const editTodos = [...todos];
-      editTodos[editIndex].text = data;
-      setTodos(editTodos);
+      const editTodo = [...todos];
+      editTodo[editIndex].text = data;
+      setTodos(editTodo);
       setShow(false);
     } else {
       alert("Please enter something");
@@ -54,11 +50,11 @@ const Todo = ({
       &nbsp;
       {!show ? (
         <button type="button" className="button-add" onClick={HandleAdd}>
-          <i className="fa fa-plus" aria-hidden="true"></i>
+          Add
         </button>
       ) : (
         <button type="button" className="button-update" onClick={handleUpdate}>
-          <i className="fa fa-pencil" aria-hidden="true"></i>
+          Update
         </button>
       )}
     </form>
