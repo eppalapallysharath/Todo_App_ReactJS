@@ -5,15 +5,17 @@ import Todo from "./Components/Todo";
 import TodoList from "./Components/TodoList";
 
 function App() {
-  let initialState;
+  const initialState = ()=>{
   try {
-    initialState = JSON.parse(localStorage.getItem("todos"));
+    const todos = JSON.parse(localStorage.getItem("todos"));
+    return todos || []
   } catch (error) {
-    console.log("error");
-    initialState = [];
+    console.log(error);
+    return []
   }
+}
   const [data, setData] = useState("");
-  const [todos, setTodos] = useState(initialState);
+  const [todos, setTodos] = useState(initialState()|| []);
   const [show, setShow] = useState(false);
   const [editIndex, setEditIndex] = useState();
   return (

@@ -32,7 +32,8 @@ const TodoList = ({
   };
   return (
     <div>
-      {todos?.length > 0 ? <div>{todos.map((t, i) => (
+      {todos?.length > 0 ? <div>
+        {todos.map((t, i) => (
         <li key={i} className="list-item">
           <input
             type="checkbox"

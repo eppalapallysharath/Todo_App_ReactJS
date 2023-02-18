@@ -12,16 +12,15 @@ const Todo = ({
 }) => {
   const HandleAdd = (e) => {
     e.preventDefault();
-    const todo = data;
+    const todo = data.trim();
     if (todo === "") {
-      // setError("Please write Something")
       alert("write something can't be empty");
     } else {
-      setTodos([...todos, { text: todo, completed: false }]);
+      setTodos((prevTodos)=>[...prevTodos, { text: todo, completed: false }]);
       setData("");
     }
   };
-
+  console.log(Array.isArray(todos))
   const handleUpdate = () => {
     if (data.length > 0) {
       const editTodo = [...todos];
@@ -37,7 +36,6 @@ const Todo = ({
   useEffect(() => {
     localStorage.setItem("todos", JSON.stringify(todos));
   }, [todos]);
-
   return (
     <form>
       <input
